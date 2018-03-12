@@ -1,1 +1,1 @@
-# GoLangとVue.jsを使う時のテンプレ
+# GoLangとVue.Jsの練習用BBS
