@@ -1,6 +1,6 @@
 <template>
   <section id="sidebar">
-    <h1>Title</h1>
+    <h1>VueGo-BBS</h1>
     <ul @click="select">
       <li v-for="item in items" :class="{ active: item.isActive }">{{item.name}}</li>
     </ul>
