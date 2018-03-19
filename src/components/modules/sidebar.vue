@@ -2,7 +2,11 @@
   <section id="sidebar">
     <h1>VueGo-BBS</h1>
     <ul @click="select">
-      <li v-for="item in items" :class="{ active: item.isActive }">{{item.name}}</li>
+      <li v-for="item in items" :class="{ active: item.isActive }">
+        <a :href=item.url>
+          {{ item.name }}
+        </a>
+      </li>
     </ul>
     <div class="container">
       <div class="profile">
@@ -22,11 +26,9 @@ export default {
   data() {
     return {
       items: [
-        { name: "content-1", isActive: true },
-        { name: "content-2", isActive: false },
-        { name: "content-3", isActive: false },
-        { name: "content-4", isActive: false },
-        { name: "content-5", isActive: false }
+        { name: "TOP", url: "/", isActive: false },
+        { name: "ログイン", url: "/login", isActive: false },
+        { name: "新規会員登録", url: "/menberRegistration", isActive: false }
       ]
     }
   },
@@ -50,7 +52,7 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  box-shadow: 5px 0px 15px black;
+  box-shadow: 5px 0 15px black;
   h1 {
     font-size: 1.2rem;
     font-weight: 100;
