@@ -10,7 +10,6 @@
     </ul>
     <div class="container">
       <div class="profile">
-
         <p class="username">User Name</p>
       </div>
       <p class="user-info">ユーザー情報</p>
