@@ -10,15 +10,14 @@
     </ul>
     <div class="container">
       <div class="profile">
-        <div class="img">
-          <img src="" alt="icon">
-        </div>
+
         <p class="username">User Name</p>
       </div>
       <p class="user-info">ユーザー情報</p>
       <p class="logout">ログアウト</p>
     </div>
   </section>
+
 </template>
 
 <script>
@@ -46,6 +45,7 @@ export default {
 
 <style lang="scss" scoped>
 #sidebar {
+  float: left;
   background-color: #272727;
   width: 15%;
   height: 100vh;
