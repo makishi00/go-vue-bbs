@@ -6,9 +6,9 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/makki0205/gojwt"
-	"github.com/makishi00/go-test/controller"
-	"github.com/makishi00/go-test/model"
-	"github.com/makishi00/go-test/service"
+	"github.com/makishi00/go-vue-bbs/controller"
+	"github.com/makishi00/go-vue-bbs/model"
+	"github.com/makishi00/go-vue-bbs/service"
 )
 
 func Jwt(salt string, exp int) gin.HandlerFunc {

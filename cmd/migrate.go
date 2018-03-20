@@ -1,6 +1,6 @@
 package main
 
-import "github.com/makishi00/go-test/model"
+import "github.com/makishi00/go-vue-bbs/model"
 
 func main() {
 	db := model.GetDBConn()
