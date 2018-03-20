@@ -1,15 +1,7 @@
 <template>
-<<<<<<< Updated upstream
     <div id="login">
         <SideBar/>
         <LoginForm/>
-=======
-    <div class="logForm">
-        <side-bar style="float: left;"></side-bar>
-        <div class="log">
-            <login-form></login-form>
-        </div>
->>>>>>> Stashed changes
     </div>
 </template>
 
@@ -25,17 +17,13 @@
     }
 </script>
 
-<<<<<<< Updated upstream
-=======
 <style>
-div.logForm {
+div#login {
     overflow: hidden;
 }
-div.log {
+div#login form {
     width: 80%;
-    margin-left: 2.5%;
+    margin-left: 17.5%;
     margin-top: 15%;
-    float: left;
 }
 </style>
->>>>>>> Stashed changes

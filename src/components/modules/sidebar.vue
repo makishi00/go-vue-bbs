@@ -10,10 +10,6 @@
     </ul>
     <div class="container">
       <div class="profile">
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
         <p class="username">User Name</p>
       </div>
       <p class="user-info">ユーザー情報</p>
