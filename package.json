@@ -2,7 +2,7 @@
   "name": "admin",
   "version": "1.0.0",
   "description": "golang's test",
-  "repository": "go-test",
+  "repository": "go-vue-bbs",
   "main": "index.js",
   "scripts": {
     "build": "webpack --color --progress",

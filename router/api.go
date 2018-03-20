@@ -2,8 +2,8 @@ package router
 
 import (
 	"github.com/gin-gonic/gin"
-	. "github.com/makishi00/go-test/controller"
-	"github.com/makishi00/go-test/middleware"
+	. "github.com/makishi00/go-vue-bbs/controller"
+	"github.com/makishi00/go-vue-bbs/middleware"
 )
 
 func apiRouter(api *gin.RouterGroup) {
