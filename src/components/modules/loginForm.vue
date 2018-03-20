@@ -1,5 +1,5 @@
 <template>
-    <form action="">
+    <form class="login-form" action="">
         <div class="modal-card" style="width: auto">
             <header class="modal-card-head">
                 <p class="modal-card-title">ログイン</p>

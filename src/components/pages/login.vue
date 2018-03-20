@@ -1,5 +1,8 @@
 <template>
-    <login-form></login-form>
+    <div id="login">
+        <SideBar/>
+        <LoginForm/>
+    </div>
 </template>
 
 <script>
@@ -9,9 +12,9 @@
     export default {
         name: "login",
         components: {
-            LoginForm,
-            "side-bar": SideBar,
-            "login-form": LoginForm
+            SideBar,
+            LoginForm
         }
     }
 </script>
+
