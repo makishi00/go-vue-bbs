@@ -1,6 +1,10 @@
 package service
 
-import "github.com/makishi00/go-vue-bbs/model"
+import (
+	"github.com/makishi00/go-vue-bbs/model"
+	"golang.org/x/crypto/bcrypt"
+)
+
 
 var User = user{}
 
@@ -29,4 +33,13 @@ func (u *user) Login(email, pass string) (*model.User, bool) {
 		return nil, false
 	}
 	return &users[0], users[0].Password == pass
+}
+
+func HashPassword(password string) (string, error) {
+	bytes, err := bcrypt.GenerateFromPassword([]byte(password), 14)
+	return string(bytes), err
+}
+func CheckPasswordHash(password, hash string) bool {
+	err := bcrypt.CompareHashAndPassword([]byte(hash), []byte(password))
+	return err == nil
 }
