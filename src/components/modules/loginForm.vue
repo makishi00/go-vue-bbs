@@ -27,7 +27,7 @@
                 <b-checkbox>Remember me</b-checkbox>
             </section>
             <footer class="modal-card-foot">
-                <button class="button is-primary" @click="login">ログイン</button>
+                <button class="button is-primary" @click.prevent="login">ログイン</button>
             </footer>
         </div>
     </form>
@@ -44,8 +44,13 @@
             }
         },
         methods:{
-            login(){
-                console.log("loginBtn-click")
+            async login(){
+                const response = await auth.login(this.email, this.password);
+                alert(await response.message);
+                if (response.status === 200) {
+                    auth.setToken(await response.data.token);
+                    location.href = '/';
+                }
             }
         }
     }

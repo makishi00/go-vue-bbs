@@ -1,18 +1,19 @@
 import axios from 'axios';
 
-export default auth;
-
 class Auth {
-    constructor(){
-        this.token = ""
+    async login(email, password) {
+        try {
+            const response = await axios.post("/api/signin", {email: email, password: password});
+            response.message = "ログインしました。";
+            return response;
+        } catch (e) {
+            return {message: "メールアドレスかパスワードが間違えています。"};
+        }
     }
-    async Login(email, password) {
-        const hoge = await axios.post("/api/signin")
-        console.log(hoge)
-    }
-    SetToken(t) {
-        this.token = t
+    setToken(token) {
+        localStorage.setItem('loginToken', token);
     }
 }
 
-var auth = new Auth()
+let auth;
+export default auth = new Auth();
