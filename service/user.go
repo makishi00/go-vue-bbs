@@ -32,7 +32,7 @@ func (u *user) Login(email, pass string) (*model.User, bool) {
 	if len(users) == 0 {
 		return nil, false
 	}
-	return &users[0], users[0].Password == pass
+	return &users[0], CheckPasswordHash(pass, string(users[0].Password))
 }
 
 func HashPassword(password string) (string, error) {
