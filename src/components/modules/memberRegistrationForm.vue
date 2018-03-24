@@ -27,13 +27,15 @@
                 <b-checkbox>Remember me</b-checkbox>
             </section>
             <footer class="modal-card-foot">
-                <button class="button is-primary" @click="memberRegistration">会員登録</button>
+                <button class="button is-primary" @click.prevent="memberRegistration">会員登録</button>
             </footer>
         </div>
     </form>
 </template>
 
 <script>
+    import user from"../../service/user";
+
     export default {
         data() {
             return {
@@ -42,8 +44,12 @@
             }
         },
         methods:{
-            memberRegistration(){
-                console.log("memberRegistrationBtn-click");
+            async memberRegistration(){
+                const response = await user.register(this.email, this.password);
+                alert(await response.message);
+                if (response.status === 200) {
+                    location.href = '/login';
+                }
             }
         }
     }
