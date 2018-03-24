@@ -13,13 +13,15 @@
         <p class="username">User Name</p>
       </div>
       <p class="user-info">ユーザー情報</p>
-      <p class="logout">ログアウト</p>
+      <a class="logout" @click.prevent="logout">ログアウト</a>
     </div>
   </section>
 
 </template>
 
 <script>
+import auth from"../../service/auth";
+
 export default {
   data() {
     return {
@@ -37,6 +39,11 @@ export default {
       for(let item of this.items) {
         item.isActive = e.target.textContent === item.name
       }
+    },
+    logout() {
+      auth.removeLoginToken();
+      alert("logoutしました。");
+      location.href = '/login';
     }
   }
 }

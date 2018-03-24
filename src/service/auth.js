@@ -1,6 +1,10 @@
 import axios from 'axios';
 
 class Auth {
+    constructor() {
+        this.loginToken = "loginToken";
+    }
+
     async login(email, password) {
         try {
             const response = await axios.post("/api/signin", {email: email, password: password});
@@ -11,12 +15,12 @@ class Auth {
         }
     }
 
-    async () {
-
+    setLoginToken(token) {
+        localStorage.setItem(this.loginToken, token);
     }
 
-    setloginToken(token) {
-        localStorage.setItem('loginToken', token);
+    removeLoginToken() {
+        localStorage.removeItem(this.loginToken);
     }
 }
 
