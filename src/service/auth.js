@@ -19,6 +19,10 @@ class Auth {
         localStorage.setItem(this.loginToken, token);
     }
 
+    getLoginToken() {
+        return localStorage.getItem(this.loginToken);
+    }
+
     removeLoginToken() {
         localStorage.removeItem(this.loginToken);
     }
