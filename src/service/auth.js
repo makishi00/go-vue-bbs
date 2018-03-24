@@ -10,7 +10,12 @@ class Auth {
             return {message: "メールアドレスかパスワードが間違えています。"};
         }
     }
-    setToken(token) {
+
+    async () {
+
+    }
+
+    setloginToken(token) {
         localStorage.setItem('loginToken', token);
     }
 }
