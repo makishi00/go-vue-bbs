@@ -12,6 +12,7 @@ type user struct {
 }
 
 func (u *user) Store(user model.User) model.User {
+	user.Password, _ = HashPassword(string(user.Password))
 	db.Create(&user)
 	return user
 }
