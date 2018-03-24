@@ -26,5 +26,5 @@ type Articles struct {
 	Model
 	UserID	uint
 	Title	string `json:"title" building"required"`
-	body	string `json:"body" building"required"`
+	Body	string `json:"body" building"required"`
 }
