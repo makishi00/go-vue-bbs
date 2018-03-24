@@ -48,7 +48,7 @@
                 const response = await auth.login(this.email, this.password);
                 alert(await response.message);
                 if (response.status === 200) {
-                    auth.setloginToken(await response.data.token);
+                    auth.setLoginToken(await response.data.token);
                     location.href = '/';
                 }
             }
