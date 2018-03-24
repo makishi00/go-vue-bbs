@@ -1,7 +1,7 @@
 <template>
   <div class="top">
-      <side-bar></side-bar>
-      <bulltetin-board></bulltetin-board>
+    <SideBar/>
+    <BulletinBoard>
   </div>
 </template>
 
