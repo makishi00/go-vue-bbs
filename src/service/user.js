@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 class User {
     async register(email, password) {
         try {
