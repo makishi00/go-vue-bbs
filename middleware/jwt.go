@@ -47,7 +47,7 @@ func Login(c *gin.Context) {
 		"email": user.Email,
 	}
 	token := jwt.Generate(claims)
-	if service.Token.ExisByToken(token) {
+	if service.Token.ExistTokenById(token) {
 		service.Token.DeleteByUserId(int(user.ID))
 	}
 	ut.UserID = user.ID
