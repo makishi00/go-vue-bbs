@@ -49,7 +49,11 @@
                 alert(await response.message);
                 if (response.status === 200) {
                     auth.setLoginToken(await response.data.token);
+                }
+                if (auth.getLoginToken() !== null) {
                     location.href = '/';
+                } else {
+                    location.href = '/signin';
                 }
             }
         }
