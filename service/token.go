@@ -15,7 +15,12 @@ func (t *token) Store(token model.Token) model.Token {
 	db.Create(&token)
 	return token
 }
-func (t *token) ExisByToken(token string) bool {
+func (t *token) ExistByToken(token string) bool {
+	var tokens []model.Token
+	db.Where("body = ?", token).Find(&tokens)
+	return len(tokens) != 0
+}
+func (t *token) ExistTokenById(token string) bool {
 	var tokens []model.Token
 	payload, err := jwt.Decode(token)
 	if err != nil{
