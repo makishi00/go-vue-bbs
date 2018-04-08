@@ -32,6 +32,7 @@ func Jwt(salt string, exp int) gin.HandlerFunc {
 
 func Login(c *gin.Context) {
 	var req model.User
+	var ut model.Token
 	err := c.BindJSON(&req)
 	if err != nil {
 		c.JSON(http.StatusBadRequest, err.Error())
@@ -46,5 +47,8 @@ func Login(c *gin.Context) {
 		"email": user.Email,
 	}
 	token := jwt.Generate(claims)
+	ut.UserID = user.ID
+	ut.Body = token
+	service.Token.Store(ut)
 	controller.Json(gin.H{"token": token}, c)
 }
