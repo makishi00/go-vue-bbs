@@ -15,7 +15,7 @@ func Jwt(salt string, exp int) gin.HandlerFunc {
 	jwt.SetSalt(salt)
 	jwt.SetExp(exp)
 	return func(c *gin.Context) {
-		token := c.Query("token")
+		token := c.GetHeader("Authorization")
 		claims, err := jwt.Decode(token)
 		if err != nil {
 			c.JSON(http.StatusUnauthorized, gin.H{
