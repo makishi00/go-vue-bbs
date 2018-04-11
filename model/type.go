@@ -22,9 +22,9 @@ type Token struct {
 	Body   string
 }
 
-type Articles struct {
+type Article struct {
 	Model
 	UserID	uint
-	Title	string `json:"title" building"required"`
-	Body	string `json:"body" building"required"`
+	Title   string `json:"title" binding:"required"`
+	Body    string `json:"body" binding:"required"`
 }
