@@ -7,9 +7,9 @@ func main() {
 
 	db.DropTableIfExists(&model.User{})
 	db.DropTableIfExists(&model.Token{})
-	db.DropTableIfExists(&model.Articles{})
+	db.DropTableIfExists(&model.Article{})
 
 	db.AutoMigrate(&model.User{})
 	db.AutoMigrate(&model.Token{})
-	db.AutoMigrate(&model.Articles{})
+	db.AutoMigrate(&model.Article{})
 }
