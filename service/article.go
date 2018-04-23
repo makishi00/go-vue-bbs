@@ -4,7 +4,6 @@ import (
 	"github.com/makishi00/go-vue-bbs/model"
 )
 
-
 var Article = article{}
 
 type article struct {
