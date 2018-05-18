@@ -26,3 +26,8 @@ func (a *articleimpl) Create(c *gin.Context) {
 	}
 	Json(article, c)
 }
+
+func (a *articleimpl) Show(c *gin.Context) {
+	var article = service.Article.Show()
+	Json(article, c)
+}
