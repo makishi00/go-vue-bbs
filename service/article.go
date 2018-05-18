@@ -14,3 +14,9 @@ func (a *article) Store(article model.Article, userId uint) model.Article {
 	db.Create(&article)
 	return article
 }
+
+func (a *article) Show() []model.Article {
+	var article []model.Article
+	db.Find(&article)
+	return article
+}

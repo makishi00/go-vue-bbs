@@ -15,5 +15,6 @@ func authApiRouter(auth *gin.RouterGroup) {
 	auth.GET("/hoge", func(c *gin.Context) {
 		c.JSON(200, "ok")
 	})
+	auth.GET("/bbs/show", Article.Show)
 	auth.POST("/bbs/add", Article.Create)
 }
