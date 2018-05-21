@@ -10,7 +10,23 @@ class Article {
             console.log(e)
         }
     }
+    async add(token, title, body) {
+        try {
+            await axios.post("/api/bbs/add",
+                {
+                    title: title,
+                    body: body
+                },
+                {
+                    headers: {
+                        "Authorization": token
+                    }
+                }
+            )
+        } catch (e) {
+            console.log(e)
+        }
+    }
 }
 
-let article;
-export default article = new Article();
+export default new Article();
