@@ -6,16 +6,19 @@
                 {{ item.name }}
             </a>
         </li>
-        <p>投稿フォーム</p>
-        <label class="label">Name</label>
-        <input class="input" type="text">
-        <label class="label">コメント</label>
-        <textarea class="textarea"></textarea>
-        <button class="button is-link">Submit</button>
+        <h2>投稿フォーム</h2>
+        <form action="">
+            <label class="label">タイトル</label>
+            <input class="input" type="text" v-model="title" required>
+            <label class="label">コメント</label>
+            <textarea class="textarea" v-model="body" required></textarea>
+            <button class="button is-link" v-on:click="add">投稿</button>
+        </form>
         <ul class="article-box">
             <li v-for="data in articleItems">
                 タイトル:{{data.title}}<br>
-                本文:{{data.body}}
+                コメント:{{data.body}}<br>
+                投稿日:{{data.created_at}}
             </li>
         </ul>
     </div>
@@ -32,8 +35,13 @@
                     {name: "編集", url: "", isActive: false},
                     {name: "削除", url: "", isActive: false}
                 ],
-                articleItems: []
+                articleItems: [],
+                title: "",
+                body: ""
             }
+        },
+        created () {
+            this.show()
         },
         methods: {
             async show() {
@@ -41,16 +49,15 @@
                     const articleData = await article.show(auth.getLoginToken())
                     articleData.data.forEach((data) => this.articleItems.push(data))
                 }
-                console.log(this.articleItems)
+            },
+            async add() {
+                await article.add(auth.getLoginToken(), this.title, this.body)
             },
             select(e) {
                 for(let item of this.items) {
                     item.isActive = e.target.textContent === item.name
                 }
             },
-        },
-        created () {
-            this.show()
         }
     }
 </script>
