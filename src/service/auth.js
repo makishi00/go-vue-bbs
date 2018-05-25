@@ -26,6 +26,12 @@ class Auth {
     removeLoginToken() {
         localStorage.removeItem(this.loginToken);
     }
+
+    getUserIDByToken(token) {
+        const base64Url = token.split('.')[1]
+        const payload = JSON.parse(window.atob(base64Url))
+        return payload.id
+    }
 }
 
 let auth;

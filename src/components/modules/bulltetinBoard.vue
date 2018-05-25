@@ -19,6 +19,9 @@
                 タイトル:{{data.title}}<br>
                 コメント:{{data.body}}<br>
                 投稿日:{{data.created_at}}
+                <form v-show="userId == data.UserID">
+                    <button class="button is-link" v-on:click="del(data.id)">削除</button>
+                </form>
             </li>
         </ul>
     </div>
@@ -37,21 +40,27 @@
                 ],
                 articleItems: [],
                 title: "",
-                body: ""
+                body: "",
+                userId: auth.getUserIDByToken(auth.getLoginToken()),
+                id: 0
             }
         },
         created () {
             this.show()
         },
         methods: {
+            async add() {
+                await article.add(auth.getLoginToken(), this.title, this.body)
+            },
+            async del(id) {
+                const response = await article.delete(auth.getLoginToken(), id)
+                alert(await response.message)
+            },
             async show() {
                 if (auth.getLoginToken() !== null) {
                     const articleData = await article.show(auth.getLoginToken())
                     articleData.data.forEach((data) => this.articleItems.push(data))
                 }
-            },
-            async add() {
-                await article.add(auth.getLoginToken(), this.title, this.body)
             },
             select(e) {
                 for(let item of this.items) {

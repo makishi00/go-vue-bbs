@@ -12,19 +12,18 @@ class Article {
     }
     async add(token, title, body) {
         try {
-            await axios.post("/api/bbs/add",
-                {
-                    title: title,
-                    body: body
-                },
-                {
-                    headers: {
-                        "Authorization": token
-                    }
-                }
-            )
+            await axios.post("/api/bbs/add", { title: title, body: body }, { headers: { "Authorization": token } })
         } catch (e) {
             console.log(e)
+        }
+    }
+    async delete(token, id) {
+        try {
+            const response = await axios.post("/api/bbs/delete", { id: id }, { headers: { "Authorization": token } })
+            response.message = "投稿を削除しました"
+            return response
+        } catch (e) {
+            return {message: "他人の投稿は削除できません"}
         }
     }
 }
