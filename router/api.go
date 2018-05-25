@@ -17,4 +17,5 @@ func authApiRouter(auth *gin.RouterGroup) {
 	})
 	auth.GET("/bbs/show", Article.Show)
 	auth.POST("/bbs/add", Article.Create)
+	auth.POST("/bbs/delete", Article.Delete)
 }
