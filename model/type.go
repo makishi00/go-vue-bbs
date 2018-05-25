@@ -25,6 +25,6 @@ type Token struct {
 type Article struct {
 	Model
 	UserID	uint
-	Title   string `json:"title" binding:"required"`
-	Body    string `json:"body" binding:"required"`
+	Title   string	`json:"title"`
+	Body    string	`json:"body"`
 }
