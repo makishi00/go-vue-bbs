@@ -20,3 +20,14 @@ func (a *article) Show() []model.Article {
 	db.Find(&article)
 	return article
 }
+
+func (a *article) ExistArticleIdByUserId(id int, userId uint) bool {
+	var articles []model.Article
+	db.Where("id = ? AND user_id = ?", id, userId).Find(&articles)
+	return len(articles) != 0
+}
+
+func (a *article) Delete(article model.Article, id int, userId uint) model.Article {
+	db.Where("id = ? AND user_id = ?", id, userId).Delete(&article)
+	return article
+}
