@@ -6,7 +6,6 @@ import (
 	"github.com/makishi00/go-vue-bbs/service"
 	"strconv"
 	"github.com/makki0205/gojwt"
-	"fmt"
 )
 
 var Article = articleimpl{}
@@ -38,7 +37,6 @@ func (a *articleimpl) Delete(c *gin.Context) {
 	var article model.Article
 	err := c.BindJSON(&article)
 	if err != nil {
-		fmt.Println(12)
 		BatRequest(err.Error(), c)
 		return
 	}
