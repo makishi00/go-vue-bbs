@@ -26,6 +26,15 @@ class Article {
             return {message: "他人の投稿は削除できません"}
         }
     }
+    async edit(token, id, title, body) {
+        try {
+            const response = await axios.post("/api/bbs/edit", { id: id, title:title, body:body }, { headers: { "Authorization": token } })
+            response.message = "投稿を編集しました"
+            return response
+        } catch (e) {
+            return {message: "他人の投稿は編集できません"}
+        }
+    }
 }
 
 export default new Article();
