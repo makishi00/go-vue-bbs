@@ -54,3 +54,25 @@ func (a *articleimpl) Delete(c *gin.Context) {
 	article = service.Article.Delete(article, int(article.ID), uint(userId))
 	Json(article, c)
 }
+
+func (a *articleimpl) Edit(c *gin.Context) {
+	var article model.Article
+	err := c.BindJSON(&article)
+	if err != nil {
+		BatRequest(err.Error(), c)
+		return
+	}
+
+	token := c.GetHeader("Authorization")
+	payload, err := jwt.Decode(token)
+	if err != nil {
+		panic(err)
+	}
+
+	var userId, _ = strconv.ParseUint(payload["id"], 10, 32)
+	if !service.Article.ExistArticleIdByUserId(int(article.ID), uint(userId)) {
+		BatRequest(err.Error(), c)
+	}
+	article = service.Article.Edit(article, int(article.ID), uint(userId), string(article.Title), string(article.Body))
+	Json(article, c)
+}
